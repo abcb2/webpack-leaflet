@@ -1,10 +1,6 @@
-import _ from 'lodash';
-import {hoge} from './hoge';
+const L = require('leaflet');
+const mymap = L.map('mymap').setView([35.68, 139.76], 15);
 
-function component() {
-  let element = document.createElement('div');
-  element.innerHTML = _.join(['Hello', 'webpack', hoge()], ' ');
-  return element;
-}
-
-document.body.appendChild(component());
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+}).addTo(mymap);
